@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dotfont-designer</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="utf-8.csv"/>
+</head>
+<body class="noselect">
+    <div class="container float" id="font_settings">
+        <h1>Font settings</h1>
+        <table>
+            <tr>
+                <td>Font name: </td>
+                <td colspan="2"><input id="font_name"/></td>
+            </tr>
+            <tr>
+                <td>Author: </td>
+                <td colspan="2"><input id="font_author"/></td>
+            </tr>
+            <tr>
+                <td>Copyright: </td>
+                <td colspan="2"><input id="font_copyright"/></td>
+            </tr>
+            <tr>
+                <td>Font size: </td>
+                <td><input type="number" min=1 style="width: 60px;" id="font_sizey" value="8"/></td>
+                <td><input type="number" min=1 style="width: 60px;" id="font_sizex" value="8"/></td>
+            </tr>
+            <tr>
+                <td>Spacing: </td>
+                <td><input type="number" min=0 style="width: 60px;" id="font_spacing"/></td>
+            </tr>
+            <tr>
+                <td>Baseline: </td>
+                <td><input type="number" min=0 style="width: 60px;" id="font_baseline"/></td>
+            </tr>
+        </table>
+        <button onclick="click_saveSettings()">Save</button>
+        <button onclick="show('#font_settings', false)">Сlose</button>
+    </div>
+
+    <div class="container menu">
+        <a onclick="file_load()">Load</a>
+        <a onclick="file_save()">Save</a>
+        <a onclick="file_saveas()">Save as...</a>
+        <a onclick="show('#font_settings', true)">Settings</a>
+    </div>
+
+    <div class="container side-right" style="width: 300px;">
+        <select id="combo_charRange" style="width: 300px;"></select>
+        <div class="container scrollable x" id="container_charTable"></div>
+    </div>
+
+    <div class="container" style="display: flex;">
+        <div id="char_canvas" class="canvas-container"></div>
+        <div id="char_reference" class="reference-container"></div>
+    </div>
+    <div class="container">
+        <div id="char_preview" class="container"></div>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+</html>
